@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
+var os = require("os");
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    var hostname = os.hostname();
+    res.send('Hello World! from container:' + hostname);
 });
 
 app.listen(8081, () => {
